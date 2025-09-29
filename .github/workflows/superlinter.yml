@@ -1,7 +1,11 @@
 name: Super-Linter
 
-on: 
+on:
   push:
+
+permissions:
+  contents: read
+  statuses: write
 
 jobs:
   super-lint:
