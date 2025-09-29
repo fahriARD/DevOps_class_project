@@ -1,4 +1,11 @@
-on: push
+name: Super-Linter
+
+on:
+  push:
+
+permissions:
+  contents: read
+  statuses: write
 
 jobs:
   super_lint:
@@ -6,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2   # ✅ pakai "actions" bukan "action"
+        uses: actions/checkout@v3
 
       - name: Run Super-Linter
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4
         env:
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: master   
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
